@@ -1,6 +1,6 @@
 {
   "name": "@atlasauth/lock",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Drop-in, one-script embeddable login widget for Atlas — a batteries-included sign-in/up modal or inline panel you add with a single script tag. The Atlas peer of Auth0 Lock.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -14,11 +14,11 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json && node build.mjs",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "typecheck": "tsgo -p tsconfig.json --noEmit --module preserve --moduleResolution bundler --incremental --tsBuildInfoFile node_modules/.cache/typecheck.tsbuildinfo",
     "test": "vitest run"
   },
   "dependencies": {
-    "@atlasauth/embed": "workspace:*",
+    "@atlasauth/embed": "workspace:^",
     "@atlasauth/themes": "workspace:*"
   },
   "devDependencies": {
@@ -34,6 +34,8 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "!dist/*.tsbuildinfo",
+    "README.md",
+    "CHANGELOG.md"
   ]
 }
